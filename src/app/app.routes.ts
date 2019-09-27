@@ -5,6 +5,7 @@ import { RestaurantDetailComponent } from './restaurant-detail/restaurant-detail
 import { MenuComponent } from './restaurant-detail/menu/menu.component';
 import { ReviewsComponent } from './restaurant-detail/reviews/reviews.component';
 import { OrderSumaryComponent } from './order-sumary/order-sumary.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 export const ROUTES: Routes = [
     { path: '', component: HomeComponent },
@@ -21,4 +22,7 @@ export const ROUTES: Routes = [
     { path: 'order', loadChildren: './order/order.module#OrderModule' }, // Lazy loading
     { path: 'order-sumary', component: OrderSumaryComponent },
     { path: 'about', loadChildren: './about/about.module#AboutModule' }, //Lazy Loading
+    { path: '**', component: NotFoundComponent } // ** =  qualquer rota que nao esteja definida, cai nessa rota
+    // Aconselhavel colocar no final esse tratamento de rotas, porque o Angular ele segue um fluxo
+    // nesse caso, irá passar de cima pra baixo, caso nao bata em nenhuma rota, ficará na rota NotFound (pego pelo **)
 ];
