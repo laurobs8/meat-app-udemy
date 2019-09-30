@@ -5,6 +5,8 @@ export interface Restaurant {
     deliveryEstimate: string;
     rating: number;
     imagePath: string;
+    hours?: string; // opcional
+    about?: string // opcional
 
     // "id": "bread-bakery",
     // "name": "Bread & Bakery",

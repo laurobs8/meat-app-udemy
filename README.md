@@ -145,3 +145,19 @@ Dependências dos pacotes que devem ficar em package.json:
 ## Créditos
 
 Todas as imagens usadas na aplicação são pertencentes a freepik.com
+
+
+## Notas
+
+Produção
+
+ng build => Mas irá com dependencias de desenvolvimentos exemplo: arquivos .map
+
+ng build --prod => Irá subir sem as dependencias de Desenvolvimento. Sem os arquivos .map (ou seja, nao vai dar pra debugar a aplicação em produção utilizando typescript)
+
+### Diferenças:
+
+build de desenvolvimento: Usa-se compilação ``Just in Time`` onde os templates serão compilados pra Javascript, mas isso acontece no BROWSER 
+
+build de produção: Usa-se a compilação ``Ahead of time`` onde essa compilação é feita de forma estatica no qual os templates serão compilador durante o build, nao no browser. São passados pra Typescript depois pra Javascript
+
