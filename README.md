@@ -173,5 +173,3 @@ build de desenvolvimento: Usa-se compilação ``Just in Time`` onde os templates
 build de produção: Usa-se a compilação ``Ahead of time`` onde essa compilação é feita de forma estatica no qual os templates serão compilador durante o build, nao no browser. São passados pra Typescript depois pra Javascript
 
 >>>>>>> f4461859f7221b10ceca6f8b31a713a25e8e2cfd
-
-# TESTE

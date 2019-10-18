@@ -2,7 +2,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { RouterModule, PreloadAllModules } from '@angular/router';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LocationStrategy, HashLocationStrategy } from '@angular/common' // EStrategia de hash pra ser aberto o componente pelo
+//Servidor. Chamando  hash na url, ele pede o index.html onde estao todas as rotas e exibe o componente da url desejado, sem isso
+// ele joga um erro 404.
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -45,14 +48,14 @@ import { NotFoundComponent } from './not-found/not-found.component';
     BrowserAnimationsModule,
     // CoreModule,
     // tslint:disable-next-line:max-line-length
-    RouterModule.forRoot(ROUTES, {preloadingStrategy: PreloadAllModules}), // Carrega previamente paginas em lazy loading em background (Indicado para lazy loading muito grandes)
+    RouterModule.forRoot(ROUTES, { preloadingStrategy: PreloadAllModules }), // Carrega previamente paginas em lazy loading em background (Indicado para lazy loading muito grandes)
     SharedModule.forRoot()
   ],
-  providers: [
+  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy },
     ReactiveFormsModule,
-    {
-      provide: LOCALE_ID, useValue: 'pt-BR'  // Locale é referente ao uso do padrão brasileiro de moeda
-    }],
+  {
+    provide: LOCALE_ID, useValue: 'pt-BR'  // Locale é referente ao uso do padrão brasileiro de moeda
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
