@@ -149,7 +149,6 @@ Todas as imagens usadas na aplicação são pertencentes a freepik.com
 ## Notas
 ### Gerando Build de produçaa (anotação da aula)
 
->>>>>>> f4461859f7221b10ceca6f8b31a713a25e8e2cfd
 Produção
 
 ng build => Mas irá com dependencias de desenvolvimentos exemplo: arquivos .map
