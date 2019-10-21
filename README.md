@@ -173,3 +173,16 @@ build de desenvolvimento: Usa-se compilação ``Just in Time`` onde os templates
 build de produção: Usa-se a compilação ``Ahead of time`` onde essa compilação é feita de forma estatica no qual os templates serão compilador durante o build, nao no browser. São passados pra Typescript depois pra Javascript
 
 >>>>>>> f4461859f7221b10ceca6f8b31a713a25e8e2cfd
+
+
+----------------------------
+
+## Deploy
+
+- Deploy pelo Apache: é apenas levar o conteudo da pasta dist para a pasta do Apache (www)
+
+- Deploy usando estrategia de caminhos: Apagar a estrategia de hash no modulo principal, colar o exemplo dado no site do Angular, e habilitar o rewrite module no apache
+
+- Caso nao tenha acesso ao arquivo de configuração do Apache, usar o htaccess: No arquivo principal (sim, precisa ver esse arquivo sim) na linha AllowOverwrite none, mudar pra AllowOverwrite All, levar o codigo copiado no site do angular, criar uma pasta no diretorio raiz da aplicação (NO APACHE) .htaccess e apenas restartar
+
+- Para mais de uma aplicação no Apache, disponibilizar para subdiretórios: Apenas mudando o index.html, a tag base para /meat (ou qualquer outro nome), nao irá funcionar por quebrará a cadeia de rotas do router. O jeito mais elegante de se fazer pe passar essas informações para o build. No terminal digitar ```ng build --prod --bh=/meat/``` (bh = base href), após isso, levar o conteudo da pasta dist gerado e levar para o diretorio do Apache
